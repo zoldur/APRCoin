@@ -6,7 +6,7 @@ CONFIGFOLDER='/root/.aprcoin'
 COIN_DAEMON='aprcoind'
 COIN_CLI='aprcoin-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/APRCoin/zenith-repository/raw/master/Wallet%20Direct%20Downloads/Linux-APRCoin.zip'
+COIN_TGZ='https://github.com/APRCoin/zenith-repository/raw/master/Wallet%20Direct%20Downloads/Version%202.1%20-%20Mandatory%20Update/Ubuntu.zip'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Aprcoin'
 COIN_PORT=3133
@@ -25,8 +25,8 @@ function download_node() {
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
   compile_error
-  unzip $COIN_ZIP >/dev/null 2>&1
-  cd Linux-APRCoin/bin/
+  unzip -x $COIN_ZIP >/dev/null 2>&1
+  cd Ubuntu/
   chmod +x $COIN_DAEMON $COIN_CLI
   cp $COIN_DAEMON $COIN_CLI $COIN_PATH
   cd ~ >/dev/null 2>&1
